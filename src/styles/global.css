@@ -1,0 +1,14 @@
+/* ===== GLOBAL CSS RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0d1623;
+    color: white;
+    min-height: 100vh;
+}
