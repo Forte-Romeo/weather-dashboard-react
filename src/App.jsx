@@ -13,11 +13,8 @@ function App() {
       
       <main className="main-content">
         <SearchBar />
-
         <CurrentWeather />
-        
         <HourlyForecast />
-        
         <AirConditions />
       </main>
 
