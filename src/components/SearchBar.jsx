@@ -1,13 +1,13 @@
 function SearchBar () {
     return (
-        <div>
+        <div className="search-container">
             <input 
                 type="text" 
                 placeholder="Search for cities"
             />
 
             <button>
-                Search
+                🔍
             </button>
         </div>
     );
