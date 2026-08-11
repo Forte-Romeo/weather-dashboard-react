@@ -12,3 +12,19 @@ body {
     color: white;
     min-height: 100vh;
 }
+
+/* ===== APP ===== */
+.app-container {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 100px 1fr 350px;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
