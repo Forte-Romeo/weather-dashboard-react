@@ -127,3 +127,35 @@ body {
     background: #1da1ff;
     transform: translateY(-2px);
 }
+
+/* ===== CURRENT WEATHER ===== */
+.current-weather {
+    min-height: 280px;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.weather-info h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.rain-chance {
+    color: #8f9aaa;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+weather-info h2 {
+    font-size: 5rem;
+    margin-top: 35px;
+    font-weight: 600;
+}
+
+weather-info img {
+    width: 210px;
+    height: 210px;
+    object-fit: contain;
+}
