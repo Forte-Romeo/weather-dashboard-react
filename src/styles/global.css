@@ -159,3 +159,24 @@ weather-info img {
     height: 210px;
     object-fit: contain;
 }
+
+/* ===== GENERAL CARDS ===== */
+.forecast-card,
+.air-conditions,
+.weekly-forecast {
+    background: #202b3b;
+    border-radius: 25px;
+}
+
+.forecast-card,
+.air-conditions {
+    padding: 25px;
+}
+
+.forecast-card h3,
+.air-conditions h3,
+.weekly-forecast h3 {
+    color: #8f9aaa;
+    font-size: 0.78rem;
+    letter-spacing: 1px;
+}
