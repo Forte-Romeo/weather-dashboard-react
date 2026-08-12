@@ -17,7 +17,7 @@ body {
 .app-container {
     width: 100%;
     max-width: 1500px;
-    min-height: 900vh;
+    min-height: 900px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 90px minmax(0, 1fr) 360px;
@@ -310,4 +310,124 @@ weather-info img {
 .day-weather span:last-child {
     color: #d4d8de;
     font-size: 0.8rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1200px) {
+
+    .app-container {
+        grid-template-columns: 80px minmax(0, 1fr);
+    }
+
+    .weekly-forecast {
+        grid-column: 2;
+    }
+
+}
+
+
+@media (max-width: 900px) {
+
+    .app-container {
+        grid-template-columns: 1fr;
+
+        padding: 15px;
+    }
+
+    .sidebar {
+        flex-direction: row;
+
+        justify-content: space-between;
+
+        padding: 15px 20px;
+    }
+
+    .logo {
+        margin-bottom: 0;
+    }
+
+    .sidebar-nav {
+        flex-direction: row;
+
+        width: auto;
+
+        gap: 25px;
+    }
+
+    .weekly-forecast {
+        grid-column: auto;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .current-weather {
+        padding: 20px;
+
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .weather-info h1 {
+        font-size: 2.3rem;
+    }
+
+    .weather-info h2 {
+        font-size: 4rem;
+
+        margin-top: 25px;
+    }
+
+    .weather-icon img {
+        width: 150px;
+
+        height: 150px;
+    }
+
+    .hourly-forecast {
+        grid-template-columns: repeat(3, 1fr);
+
+        row-gap: 30px;
+    }
+
+    .hour-card:nth-child(3)::after {
+        display: none;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .sidebar {
+        overflow-x: auto;
+    }
+
+    .sidebar-nav {
+        gap: 15px;
+    }
+
+    .nav-item {
+        min-width: 60px;
+    }
+
+    .hourly-forecast {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hour-card:nth-child(even)::after {
+        display: none;
+    }
+
+    .conditions-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .day-card {
+        grid-template-columns: 50px 1fr 70px;
+    }
+
 }
