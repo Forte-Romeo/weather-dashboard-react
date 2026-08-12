@@ -221,3 +221,46 @@ weather-info img {
 .hour-card h4 {
     font-size: 1.3rem;
 }
+
+/* ===== AIR CONDITIONS ===== */
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.see-more-btn {
+    border: none;
+    background: #0095ff;
+    color: white;
+    border-radius: 30px;
+    padding: 9px 18px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: 0.3s ease;
+}
+
+.see-more-btn:hover {
+    background: #1da1ff;
+}
+
+.condition-card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.condition-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #8f9aaa;
+    font-size: 0.85rem;
+}
+
+.condition-card h4 {
+    font-size: 1.9rem;
+    font-weight: 500;
+    margin-left: 25px;
+}
