@@ -8,13 +8,16 @@ import WeeklyForecast from "./components/WeeklyForecast";
 function App() {
   return (
     <div className="app-container">
-      <h1>Weather Dashboard</h1>
+
       <Sidebar />
       
       <main className="main-content">
         <SearchBar />
+
         <CurrentWeather />
+
         <HourlyForecast />
+        
         <AirConditions />
       </main>
 
