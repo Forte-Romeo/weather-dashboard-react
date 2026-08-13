@@ -1,20 +1,17 @@
-function CurrentWeather({ city }) {
+function CurrentWeather({ city, weather }) {
     return (
         <section className="current-weather">
             
             <div className="weather-info">
                 <h1>{city}</h1>
                 <p className="rain-chance">
-                    Chance of rain: 20%
+                    Chance of rain: {weather.rainChance}%
                 </p>
-                <h2>31°</h2>
+                <h2>{weather.temperature}°</h2>
             </div>
 
             <div className="weather-icon">
-                <img 
-                    src="https://openweathermap.org/img/wn/01d@4x.png" 
-                    alt="Sunny Weather" 
-                />
+                {weather.icon}
             </div>
             
         </section>
