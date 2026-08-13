@@ -19,7 +19,7 @@ function App() {
       <main className="main-content">
         <SearchBar />
 
-        <CurrentWeather />
+        <CurrentWeather city={city} />
 
         <HourlyForecast />
         
