@@ -9,7 +9,17 @@ import WeeklyForecast from "./components/WeeklyForecast";
 
 function App() {
 
-  const [city, setCity] = useState("Accra")
+  const [city, setCity] = useState("Accra");
+  const [weather, setWeather] = useState({
+    temperature: 31,
+    feelsLike: 32,
+    humidity: 78,
+    windSpeed: 4.2,
+    uvIndex: 6,
+    rainChance: 20,
+    condition: "Sunny",
+    icon: "☀️"
+  })
 
   return (
     <div className="app-container">
@@ -19,7 +29,7 @@ function App() {
       <main className="main-content">
         <SearchBar onSearch={setCity} />
 
-        <CurrentWeather city={city} />
+        <CurrentWeather city={city} weather={weather}/>
 
         <HourlyForecast />
         
