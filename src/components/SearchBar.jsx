@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function SearchBar () {
+function SearchBar ({ onSearch }) {
 
     const [searchTerm, setSearchTerm] = useState("");
 
@@ -9,7 +9,20 @@ function SearchBar () {
     }
 
     function handleSearch() {
-        console.log("Searching for:", searchTerm);
+        const trimmedSearch = searchTerm.trim();
+
+        if (trimmedSearch === "") {
+            return;
+        }
+
+        onSearch(trimmedSearch);
+        setSearchTerm("");
+    }
+
+    function handleKeyDown(event) {
+        if (event.key === "Enter") {
+            handleSearch();
+        }
     }
 
     return (
@@ -19,6 +32,7 @@ function SearchBar () {
                 placeholder="Search for cities"
                 value={searchTerm}
                 onChange={handleInputChange}
+                onKeyDown={handleKeyDown}
             />
 
             <button onClick={handleSearch}>
