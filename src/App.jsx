@@ -33,7 +33,7 @@ function App() {
 
         <HourlyForecast />
         
-        <AirConditions />
+        <AirConditions weather={weather} />
       </main>
 
       <WeeklyForecast />
