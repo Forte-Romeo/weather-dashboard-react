@@ -11,7 +11,9 @@ function CurrentWeather({ city, weather }) {
             </div>
 
             <div className="weather-icon">
-                {weather.icon}
+                <span className="main-weather-icon">
+                    {weather.icon}
+                </span>
             </div>
             
         </section>
