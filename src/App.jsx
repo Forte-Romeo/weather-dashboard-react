@@ -17,7 +17,7 @@ function App() {
       <Sidebar />
       
       <main className="main-content">
-        <SearchBar />
+        <SearchBar onSearch={setCity} />
 
         <CurrentWeather city={city} />
 
