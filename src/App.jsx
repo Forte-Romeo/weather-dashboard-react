@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import Sidebar from "./components/Sidebar";
 import SearchBar from "./components/SearchBar";
 import CurrentWeather from "./components/CurrentWeather";
@@ -6,6 +8,9 @@ import AirConditions from "./components/AirConditions";
 import WeeklyForecast from "./components/WeeklyForecast";
 
 function App() {
+
+  const [city, setCity] = useState("Accra")
+
   return (
     <div className="app-container">
 
