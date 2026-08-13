@@ -160,6 +160,11 @@ weather-info img {
     object-fit: contain;
 }
 
+.main-weather-icon {
+    font-size: 9rem;
+    display: block;
+}
+
 /* ===== GENERAL CARDS ===== */
 .forecast-card,
 .air-conditions,
