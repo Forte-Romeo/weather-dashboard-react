@@ -1,9 +1,9 @@
-function CurrentWeather() {
+function CurrentWeather({ city }) {
     return (
         <section className="current-weather">
             
             <div className="weather-info">
-                <h1>Accra</h1>
+                <h1>{city}</h1>
                 <p className="rain-chance">
                     Chance of rain: 20%
                 </p>
