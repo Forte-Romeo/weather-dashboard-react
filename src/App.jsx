@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import { getWeather } from "./services/weatherApi";
 
 import Sidebar from "./components/Sidebar";
 import SearchBar from "./components/SearchBar";
@@ -10,16 +12,33 @@ import WeeklyForecast from "./components/WeeklyForecast";
 function App() {
 
   const [city, setCity] = useState("Accra");
-  const [weather, setWeather] = useState({
-    temperature: 31,
-    feelsLike: 32,
-    humidity: 78,
-    windSpeed: 4.2,
-    uvIndex: 6,
-    rainChance: 20,
-    condition: "Sunny",
-    icon: "☀️"
-  })
+  const [weather, setWeather] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  useEffect(()=> {
+    async function fetchWeather() {
+      
+      try {
+        setLoading(true);
+        setError("");
+
+        const data =await getWeather(city);
+        setWeather(data);
+      } 
+      
+      catch (error) {
+        setError(error.message);
+      } 
+      
+      finally {
+        setLoading(false);
+      }
+
+    }
+
+    fetchWeather();
+  }, [city]);
 
   return (
     <div className="app-container">
@@ -29,14 +48,28 @@ function App() {
       <main className="main-content">
         <SearchBar onSearch={setCity} />
 
-        <CurrentWeather city={city} weather={weather}/>
+        {loading && (
+          <p>Loading weather...</p>
+        )}
 
-        <HourlyForecast />
+        {error && (
+          <p>{error}</p>
+        )}
+
+        {weather && !loading && !error && (
+          <>
+            <CurrentWeather city={city} weather={weather}/>
+
+            <HourlyForecast weather={weather}/>
         
-        <AirConditions weather={weather} />
+            <AirConditions weather={weather} />
+          </>
+        )}
       </main>
 
-      <WeeklyForecast />
+      {weather && !loading && !error && (
+        <WeeklyForecast weather={weather}/>
+      )}
 
     </div>
   );
