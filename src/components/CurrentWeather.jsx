@@ -8,7 +8,7 @@ function CurrentWeather({ weather }) {
             <div className="weather-info">
                 <h1>{location.name}</h1>
                 <p className="rain-chance">
-                    Chance of rain: {current.condition.text}%
+                    Chance of rain: {current.condition.text}
                 </p>
                 <h2>{Math.round(current.temp_c)}°</h2>
             </div>
