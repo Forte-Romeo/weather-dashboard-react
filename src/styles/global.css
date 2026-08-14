@@ -89,6 +89,19 @@ body {
     gap: 20px;
 }
 
+.status-message {
+    background: #202b3b;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    color: #aeb7c4;
+    font-size: 1rem;
+}
+
+.status-message.error {
+    color: #ff9b9b;
+}
+
 /* ===== SEARCH ===== */
 .search-container {
     display: flex;
