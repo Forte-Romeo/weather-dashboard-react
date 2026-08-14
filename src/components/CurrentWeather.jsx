@@ -15,7 +15,7 @@ function CurrentWeather({ weather }) {
 
             <div className="weather-icon">
                 <img 
-                    src="{`https:${current.condition.icon}`}" 
+                    src={`https:${current.condition.icon}`}
                     alt={current.condition.text} 
                 />
             </div>
