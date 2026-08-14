@@ -1,25 +1,27 @@
 function AirConditions({ weather }) {
 
+    const { current } = weather;
+
     const conditions = [
         {
             icon: "🌡️",
             label: "Real Feel",
-            value: `${weather.feelsLike}°`
+            value: `${Math.round(current.feelslike_c)}°`
         },
         {
             icon: "💨",
             label: "Wind",
-            value: `${weather.windSpeed} km/h`
+            value: `${current.wind_kph} km/h`
         },
         {
             icon: "💧",
             label: "Humidity",
-            value: `${weather.humidity}%`
+            value: `${current.humidity}%`
         },
         {
             icon: "☀️",
             label: "UV Index",
-            value: weather.uvIndex
+            value: current.uv
         }
     ];
 
