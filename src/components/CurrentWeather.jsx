@@ -1,19 +1,23 @@
-function CurrentWeather({ city, weather }) {
+function CurrentWeather({ weather }) {
+
+    const { location, current } = weather;
+
     return (
         <section className="current-weather">
             
             <div className="weather-info">
-                <h1>{city}</h1>
+                <h1>{location.name}</h1>
                 <p className="rain-chance">
-                    Chance of rain: {weather.rainChance}%
+                    Chance of rain: {current.condition.text}%
                 </p>
-                <h2>{weather.temperature}°</h2>
+                <h2>{Math.round(current.temp_c)}°</h2>
             </div>
 
             <div className="weather-icon">
-                <span className="main-weather-icon">
-                    {weather.icon}
-                </span>
+                <img 
+                    src="{`https:${current.condition.icon}`}" 
+                    alt={current.condition.text} 
+                />
             </div>
             
         </section>
