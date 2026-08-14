@@ -1,56 +1,6 @@
-function WeeklyForecast() {
+function WeeklyForecast({ weather }) {
 
-    const forecast = [
-        {
-            day: "Today",
-            condition: "Sunny",
-            icon: "☀️",
-            high: "36°",
-            low: "22°"
-        },
-        {
-            day: "Tue",
-            condition: "Sunny",
-            icon: "☀️",
-            high: "37°",
-            low: "21°"
-        },
-        {
-            day: "Wed",
-            condition: "Sunny",
-            icon: "☀️",
-            high: "37°",
-            low: "21°"
-        },
-        {
-            day: "Thu",
-            condition: "Cloudy",
-            icon: "☁️",
-            high: "35°",
-            low: "22°"
-        },
-        {
-            day: "Fri",
-            condition: "Cloudy",
-            icon: "☁️",
-            high: "34°",
-            low: "22°"
-        },
-        {
-            day: "Sat",
-            condition: "Rainy",
-            icon: "🌧️",
-            high: "32°",
-            low: "21°"
-        },
-        {
-            day: "Sun",
-            condition: "Storm",
-            icon: "⛈️",
-            high: "31°",
-            low: "20°"
-        }
-    ];
+    const forecastDays = weather.forecast.forecastday;
 
     return (
         <aside className="weekly-forecast">
@@ -59,26 +9,40 @@ function WeeklyForecast() {
 
             <div className="weekly-list">
 
-                {forecast.map((day) => (
+                {forecastDays.map((day, index) => (
                     <div
                         className="day-card"
-                        key={day.day}
+                        key={day.date}
                     >
-
-                        <p>{day.day}</p>
+                        <p>
+                            {index === 0
+                                ? "Today"
+                                : new Date(day.date)
+                                    .toLocaleDateString(
+                                        "en-US",
+                                        {
+                                            weekday: "short"
+                                        }
+                                    )
+                            }
+                        </p>
 
                         <div className="day-weather">
-                            <span className="day-icon">
-                                {day.icon}
-                            </span>
+                            <img
+                                className="day-icon"
+                                src={`https:${day.day.condition.icon}`}
+                                alt={day.day.condition.text}
+                            />
 
                             <span>
-                                {day.condition}
+                                {day.day.condition.text}
                             </span>
                         </div>
 
                         <p>
-                            {day.high} / {day.low}
+                            {Math.round(day.day.maxtemp_c)}°
+                            {" / "}
+                            {Math.round(day.day.mintemp_c)}°
                         </p>
 
                     </div>
