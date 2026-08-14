@@ -28,7 +28,10 @@ function App() {
       } 
       
       catch (error) {
-        setError(error.message);
+        setWeather(null);
+        setError(
+          error.message = "Unable to find weather for this location."
+        );
       } 
       
       finally {
@@ -49,11 +52,16 @@ function App() {
         <SearchBar onSearch={setCity} />
 
         {loading && (
-          <p>Loading weather...</p>
+          <div className="status-message">
+            <p>Loading weather...</p>
+          </div>
+          
         )}
 
         {error && (
-          <p>{error}</p>
+          <div className="status-message error">
+            {error}
+          </div>
         )}
 
         {weather && !loading && !error && (
