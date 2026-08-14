@@ -58,7 +58,7 @@ function App() {
 
         {weather && !loading && !error && (
           <>
-            <CurrentWeather city={city} weather={weather}/>
+            <CurrentWeather weather={weather}/>
 
             <HourlyForecast weather={weather}/>
         
