@@ -217,14 +217,17 @@ weather-info img {
     font-size: 0.8rem;
 }
 
-.forecast-icon {
-    display: block;
-    font-size: 2rem;
-    margin: 15px 0;
-}
-
 .hour-card h4 {
     font-size: 1.3rem;
+}
+
+.forecast-weather-icon {
+    width: 45px;
+    height: 45px;
+
+    object-fit: contain;
+
+    margin: 12px auto;
 }
 
 /* ===== AIR CONDITIONS ===== */
