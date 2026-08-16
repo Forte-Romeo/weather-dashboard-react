@@ -1,4 +1,5 @@
 import HourlyWeatherCard from "./HourlyWeatherCard";
+import SectionHeader from "./SectionHeader";
 
 function HourlyForecast({ weather }) {
 
@@ -11,7 +12,9 @@ function HourlyForecast({ weather }) {
     return (
         <section className="forecast-card">
 
-            <h3>TODAY'S FORECAST</h3>
+            <SectionHeader
+                title="TODAY'S FORECAST"
+            />
 
             <div className="hourly-forecast">
 

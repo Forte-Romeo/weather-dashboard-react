@@ -1,4 +1,5 @@
 import WeatherMetric from "./WeatherMetric";
+import SectionHeader from "./SectionHeader"
 
 function AirConditions({ weather }) {
 
@@ -29,12 +30,10 @@ function AirConditions({ weather }) {
 
     return (
         <section className="air-conditions">
-            <div className="section-header">
-                <h3>AIR CONDITIONS</h3>
-                <button className="see-more-btn">
-                    See More
-                </button>
-            </div>
+            <SectionHeader
+                title="AIR CONDITIONS"
+                actionLabel= "See More"
+            />
             
             <div className="conditions-grid">
                 {conditions.map((condition) =>(
