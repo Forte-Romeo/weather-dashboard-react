@@ -1,3 +1,5 @@
+import DailyForecastCard from "./DailyForecastCard";
+
 function WeeklyForecast({ weather }) {
 
     const forecastDays = weather.forecast.forecastday;
@@ -9,44 +11,37 @@ function WeeklyForecast({ weather }) {
 
             <div className="weekly-list">
 
-                {forecastDays.map((day, index) => (
-                    <div
-                        className="day-card"
-                        key={day.date}
-                    >
-                        <p>
-                            {index === 0
-                                ? "Today"
-                                : new Date(day.date)
-                                    .toLocaleDateString(
-                                        "en-US",
-                                        {
-                                            weekday: "short"
-                                        }
-                                    )
-                            }
-                        </p>
+                {forecastDays.map((day, index) => {
 
-                        <div className="day-weather">
-                            <img
-                                className="day-icon"
-                                src={`https:${day.day.condition.icon}`}
-                                alt={day.day.condition.text}
-                            />
+                    const dayName =
+                        index === 0
+                            ? "Today"
+                            : new Date(day.date)
+                                .toLocaleDateString(
+                                    "en-US",
+                                    {
+                                        weekday: "short"
+                                    }
+                                );
 
-                            <span>
-                                {day.day.condition.text}
-                            </span>
-                        </div>
+                    return (
 
-                        <p>
-                            {Math.round(day.day.maxtemp_c)}°
-                            {" / "}
-                            {Math.round(day.day.mintemp_c)}°
-                        </p>
+                        <DailyForecastCard
+                            key={day.date}
+                            day={dayName}
+                            icon={day.day.condition.icon}
+                            condition={day.day.condition.text}
+                            maxTemperature={Math.round(
+                                day.day.maxtemp_c
+                            )}
+                            minTemperature={Math.round(
+                                day.day.mintemp_c
+                            )}
+                        />
 
-                    </div>
-                ))}
+                    );
+
+                })}
 
             </div>
 
