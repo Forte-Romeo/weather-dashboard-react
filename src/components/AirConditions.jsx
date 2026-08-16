@@ -1,3 +1,5 @@
+import WeatherMetric from "./WeatherMetric";
+
 function AirConditions({ weather }) {
 
     const { current } = weather;
@@ -36,26 +38,12 @@ function AirConditions({ weather }) {
             
             <div className="conditions-grid">
                 {conditions.map((condition) =>(
-                    <div 
-                        className="condition-card"
+                    <WeatherMetric
                         key={condition.label}
-                    >
-
-                        <div className="condition-title">
-                            <span>
-                                {condition.icon}
-                            </span>
-
-                            <span>
-                                {condition.label}
-                            </span>
-                        </div>
-
-                        <h4>
-                            {condition.value}
-                        </h4>
-
-                    </div>
+                        icon={condition.icon}
+                        label={condition.label}
+                        value={condition.value}
+                    />
                 ))}
             </div>
             
