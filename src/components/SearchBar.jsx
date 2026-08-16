@@ -8,10 +8,12 @@ function SearchBar ({ onSearch }) {
         setSearchTerm(event.target.value);
     }
 
-    function handleSearch() {
+    function handleSubmit(event) {
+        event.preventDfault();
+
         const trimmedSearch = searchTerm.trim();
 
-        if (trimmedSearch === "") {
+        if (!trimmedSearch) {
             return;
         }
 
@@ -19,26 +21,22 @@ function SearchBar ({ onSearch }) {
         setSearchTerm("");
     }
 
-    function handleKeyDown(event) {
-        if (event.key === "Enter") {
-            handleSearch();
-        }
-    }
-
     return (
-        <div className="search-container">
+        <form 
+            className="search-container" 
+            onSubmit={handleSubmit}
+        >
             <input 
                 type="text" 
                 placeholder="Search for cities"
                 value={searchTerm}
                 onChange={handleInputChange}
-                onKeyDown={handleKeyDown}
             />
 
-            <button onClick={handleSearch}>
+            <button type="submit">
                 🔍
             </button>
-        </div>
+        </form>
     );
 }
 
