@@ -9,7 +9,7 @@ function SearchBar ({ onSearch }) {
     }
 
     function handleSubmit(event) {
-        event.preventDfault();
+        event.preventDefault();
 
         const trimmedSearch = searchTerm.trim();
 
