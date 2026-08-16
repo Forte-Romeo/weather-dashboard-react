@@ -1,6 +1,12 @@
+import HourlyWeatherCard from "./HourlyWeatherCard";
+
 function HourlyForecast({ weather }) {
 
     const hours = weather.forecast.forecastday[0].hour;
+
+    const selectedHours = hours
+        .filter((hour, index) => index % 3 === 0)
+        .slice(0, 6); 
 
     return (
         <section className="forecast-card">
@@ -9,35 +15,18 @@ function HourlyForecast({ weather }) {
 
             <div className="hourly-forecast">
 
-                {hours
-                    .filter((hour, index) => index % 3 === 0)
-                    .slice(0, 6)
-                    .map((hour) => (
-
-                        <div
-                            className="hour-card"
-                            key={hour.time}
-                        >
-
-                            <p>
-                                {new Date(hour.time)
-                                    .toLocaleTimeString([], {
-                                        hour: "numeric"
-                                    })}
-                            </p>
-
-                            <img
-                                className="forecast-weather-icon"
-                                src={`https:${hour.condition.icon}`}
-                                alt={hour.condition.text}
-                            />
-
-                            <h4>
-                                {Math.round(hour.temp_c)}°
-                            </h4>
-
-                        </div>
-                    ))}
+                {selectedHours.map((hour) => (
+                    <HourlyWeatherCard
+                        key={hour.time}
+                        time={new Date(hour.time)
+                            .toLocaleTimeString([], {
+                                hour: "numeric"
+                            })}
+                        icon={hour.condition.icon}
+                        temperature={Math.round(hour.temp_c)}
+                        condition={hour.condition.text}
+                    />
+                ))}
             </div>
 
         </section>
